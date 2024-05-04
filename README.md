@@ -1,4 +1,4 @@
-# Embracing Reactive Programming with Spring Boot, R2DBC, and Java Record Classes
+# Spring Boot with R2DBC: A Match Made in Reactive Heaven (or Hell, if You're a JDBC Purist)
 
 ## Introduction
 In the ever-evolving world of software development, reactive programming has gained significant traction due to its ability to handle high-throughput, event-driven applications efficiently. Spring Boot, a popular Java framework, has embraced this paradigm by providing support for R2DBC (Reactive Relational Database Connectivity) and introducing Java record classes in recent versions. In this blog post, we'll explore the tech stack used in a Spring Boot project, the benefits of using R2DBC, and the advantages of Java record classes.
