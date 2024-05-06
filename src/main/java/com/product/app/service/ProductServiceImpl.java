@@ -12,19 +12,21 @@ import reactor.core.publisher.Mono;
 public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository;
+    private GenAIService genAIService;
 
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, GenAIService genAIService) {
         this.productRepository = productRepository;
+        this.genAIService = genAIService;
     }
 
     @Override
     public Mono<Product> save(Product product) {
-        return productRepository.save(product);
+        return productRepository.save(product).map(p -> p.withAugmentedDescription(genAIService.generateAugmentedDescription(p.toString())));
     }
 
     @Override
     public Mono<Product> getProductById(Long id) {
-        return productRepository.findById(id);
+        return productRepository.findById(id).map(p -> p.withAugmentedDescription(genAIService.generateAugmentedDescription(p.toString())));
     }
 
     @Override
